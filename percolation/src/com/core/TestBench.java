@@ -47,7 +47,6 @@ public class TestBench {
                 //open the slot
                 b.makeOpen(randomNum_row, randomNum_column);
                 b.displayBoard();
-                System.out.print("\n\n\n");
             }
 
         }
