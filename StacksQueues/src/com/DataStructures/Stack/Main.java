@@ -3,21 +3,26 @@ package com.DataStructures.Stack;
 public class Main {
 
     public static void main (String[] args){
-        Stack s = new Stack();
-        s.push("hamid");
-        s.push("reza");
-        s.push("roodabeh");
-        s.push("is");
-        s.push("king");
+        StackWithArray sw = new StackWithArray();
 
-        s.show();
+        sw.push("1");
+        sw.push("2");
+        sw.push("3");
+        sw.push("4");
+        sw.push("5");
+        sw.push("6");
+        sw.push("7");
+        sw.push("8");
 
 
-        s.pop();
-        s.pop();
-        s.pop();
+        sw.show();
 
-        s.show();
+        sw.pop();
+        sw.pop();
+        sw.pop();
+
+        sw.show();
+
 
     }
 

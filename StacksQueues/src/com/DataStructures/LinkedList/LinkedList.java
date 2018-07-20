@@ -75,6 +75,9 @@ public class LinkedList {
 
     public void show() {
 
+        if (this.isEmpty())
+            return;
+
         Node temp = this.head;
         while(temp != null){
             System.out.println(temp.getValue());
