@@ -36,6 +36,19 @@ public class StackWithArray {
     public String pop(){
         if(isEmpty())
             return null;
+
+        if(size == length/4){
+            String[] temp = new String[length/2];
+
+            indexPointer = 0;
+            for(String s : values){
+                if(s != null)
+                    temp[indexPointer++] = s;
+            }
+            length = length/2;
+            values = temp;
+        }
+
         String res = values[indexPointer-1];
         values[indexPointer-1] = null;
         indexPointer--;
