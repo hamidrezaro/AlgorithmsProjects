@@ -73,6 +73,20 @@ public class LinkedList<Item> {
         return result;
     }
 
+    public void insertAtIndex(Item _value, int _index){
+        if(_index < 0 || _index > (size-1))
+            return;
+
+        Node<Item> temp = head;
+        for(int i = 0; i<_index-1; i++){
+            temp = temp.getNext();
+        }
+
+        Node<Item> nptr = new Node<Item>(_value, temp.getNext());
+        temp.setNext(nptr);
+
+    }
+
     public void show() {
 
         if (this.isEmpty())
@@ -85,6 +99,8 @@ public class LinkedList<Item> {
         }
 
     }
+
+    public Node<Item> getHead(){return head;}
 
     public boolean isEmpty(){
         return this.head == null;

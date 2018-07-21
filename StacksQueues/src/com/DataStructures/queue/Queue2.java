@@ -2,7 +2,9 @@ package com.DataStructures.queue;
 
 import com.DataStructures.LinkedList.Node;
 
-public class Queue2<Item> {
+import java.util.Iterator;
+
+public class Queue2<Item> implements Iterable{
 
     private Node<Item> first, last;
 
@@ -11,17 +13,42 @@ public class Queue2<Item> {
         last = null;
     }
 
+    @Override
+    public Iterator iterator() {
+        return new QueueIterator();
+    }
+
+    public class QueueIterator implements Iterator{
+
+        private Node<Item> current = first;
+
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public Item next() {
+
+            Item res = current.getValue();
+            current = current.getNext();
+            return res;
+
+        }
+    }
+
     public void enqueue(Item _value){
 
 
 
         if(this.isEmpty()){
-            Node nptr = new Node<Item>(_value, null);
+            Node<Item> nptr = new Node<Item>(_value, null);
             last = first = nptr;
             return;
         }
 
-        Node nptr = new Node<Item>(_value, null);
+        Node<Item> nptr = new Node<Item>(_value, null);
         last.setNext(nptr);
         last = nptr;
 

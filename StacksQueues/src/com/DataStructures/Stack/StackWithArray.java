@@ -1,6 +1,7 @@
 package com.DataStructures.Stack;
+import java.util.Iterator;
 
-public class StackWithArray<Item> {
+public class StackWithArray<Item> implements Iterable<Item>{
 
     private int size;
     private int length;
@@ -12,6 +13,25 @@ public class StackWithArray<Item> {
         indexPointer = 0;
         size = 0;
         values = (Item[]) new Object[length];
+    }
+
+    public Iterator<Item> iterator(){
+        return new ReverseArrayIterator();
+    }
+
+    public class ReverseArrayIterator implements Iterator<Item>{
+
+        private int i = size;
+
+        @Override
+        public boolean hasNext() {
+            return i > 0;
+        }
+
+        @Override
+        public Item next(){
+            return values[--i];
+        }
     }
 
     public void push(Item _value){
