@@ -3,7 +3,7 @@ package com.DataStructures.Stack;
 public class Main {
 
     public static void main (String[] args){
-        StackWithArray sw = new StackWithArray();
+        StackWithArray<String> sw = new StackWithArray<>();
 
         sw.push("1");
         sw.push("2");

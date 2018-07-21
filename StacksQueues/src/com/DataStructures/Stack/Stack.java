@@ -2,19 +2,19 @@ package com.DataStructures.Stack;
 
 import com.DataStructures.LinkedList.LinkedList;
 
-public class Stack {
+public class Stack<Item> {
 
-    private LinkedList list;
+    private LinkedList<Item> list;
 
     Stack(){
-        list = new LinkedList();
+        list = new LinkedList<Item>();
     }
 
-    public void push(String _value){
+    public void push(Item _value){
         list.insertEnd(_value);
     }
 
-    public String pop(){
+    public Item pop(){
         return list.popEnd();
     }
 

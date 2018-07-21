@@ -1,30 +1,30 @@
 package com.DataStructures.Stack;
 
-public class StackWithArray {
+public class StackWithArray<Item> {
 
     private int size;
     private int length;
     private int indexPointer;
-    private String[] values;
+    private Item[] values;
 
     StackWithArray(){
         length = 5;
         indexPointer = 0;
         size = 0;
-        values = new String[length];
+        values = (Item[]) new Object[length];
     }
 
-    public void push(String _value){
+    public void push(Item _value){
 
         if(indexPointer > (length-1)){
             length = 2*length;
-            String[] temp_array = new String[length];
+            Item[] temp_array = (Item[])new Object[length];
             indexPointer = 0;
-            for(String s : values){
+            for(Item s : values){
                 if(s != null)
                     temp_array[indexPointer++] = s;
             }
-            values = new String[length];
+            values = (Item[])new Object[length];
             values = temp_array;
         }
 
@@ -33,15 +33,15 @@ public class StackWithArray {
         indexPointer++;
     }
 
-    public String pop(){
+    public Item pop(){
         if(isEmpty())
             return null;
 
         if(size == length/4){
-            String[] temp = new String[length/2];
+            Item[] temp = (Item[]) new Object[length/2];
 
             indexPointer = 0;
-            for(String s : values){
+            for(Item s : values){
                 if(s != null)
                     temp[indexPointer++] = s;
             }
@@ -49,7 +49,7 @@ public class StackWithArray {
             values = temp;
         }
 
-        String res = values[indexPointer-1];
+        Item res = values[indexPointer-1];
         values[indexPointer-1] = null;
         indexPointer--;
         size--;
@@ -61,7 +61,7 @@ public class StackWithArray {
     }
 
     public void show(){
-        for(String s : values){
+        for(Item s : values){
             if(s != null)
                 System.out.println(s);
         }

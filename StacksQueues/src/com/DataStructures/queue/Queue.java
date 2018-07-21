@@ -2,20 +2,20 @@ package com.DataStructures.queue;
 
 import com.DataStructures.LinkedList.LinkedList;
 
-public class Queue {
+public class Queue<Item> {
 
-    private LinkedList list;
+    private LinkedList<Item> list;
 
     Queue(){
-        list = new LinkedList();
+        list = new LinkedList<Item>();
     }
 
-    public void enqueue(String _value){
+    public void enqueue(Item _value){
 
         list.insertEnd(_value);
     }
 
-    public String dequeue(){
+    public Item dequeue(){
 
         return list.popFront();
     }

@@ -1,9 +1,9 @@
 package com.DataStructures.LinkedList;
 
-public class Node {
+public class Node<Item> {
 
-    private Node next;
-    private String value;
+    private Node<Item> next;
+    private Item value;
 
 
     Node(){
@@ -13,27 +13,27 @@ public class Node {
 
     }
 
-    Node(String _value){
+    Node(Item _value){
         this.value = _value;
         this.next = null;
     }
 
-    Node (String _value, Node _next){
+    public Node(Item _value, Node<Item> _next){
         this.value = _value;
         this.next = _next;
     }
 
 
-    public Node getNext(){
+    public Node<Item> getNext(){
         return this.next;
     }
 
 
-    public String getValue() {
+    public Item getValue() {
         return value;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<Item> next) {
         this.next = next;
     }
 
@@ -41,7 +41,7 @@ public class Node {
         return (this.next != null);
     }
 
-    public void setValue(String _value){
+    public void setValue(Item _value){
         this.value = _value;
     }
 
