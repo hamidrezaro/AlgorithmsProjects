@@ -59,6 +59,9 @@ public class LinkedList<Item> {
         }
         Item result = temp.getValue();
         holder.setNext(null);
+        if(temp == head){
+            head = null;
+        }
         return result;
 
     }
