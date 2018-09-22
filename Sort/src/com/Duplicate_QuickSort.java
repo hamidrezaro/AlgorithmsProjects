@@ -12,7 +12,7 @@ public class Duplicate_QuickSort {
         if(lo <=hi)
             return;
 
-        int i, lt, j, gt;
+        int i, lt, gt;
         i = lt = lo;
         gt = hi;
 

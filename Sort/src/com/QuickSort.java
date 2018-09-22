@@ -33,17 +33,17 @@ public class QuickSort {
 
     }
 
-    private static void sort(Comparable[] arr){
-        Shuffle sh = new Shuffle();
-        sh.shuffle(arr);
-        sort(arr, 0, arr.length - 1);
-    }
-
     private static void sort (Comparable[] arr, int lo, int hi){
         if(hi <= lo) return;
         int j = partition(arr, lo, hi);
         sort(arr, lo, j-1);
         sort(arr, j+1, hi);
+    }
+
+    private static void sort(Comparable[] arr){
+        Shuffle sh = new Shuffle();
+        sh.shuffle(arr);
+        sort(arr, 0, arr.length - 1);
     }
 
     public static void main(String[] args){
