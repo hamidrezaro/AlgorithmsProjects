@@ -12,12 +12,12 @@
  */
 
 
-public class BinaryHeap<Item extends Comparable<Item>>{
+public class MaxBinaryHeap<Item extends Comparable<Item>>{
 
     private Item[] heap;
     private int size;
 
-    public BinaryHeap(int MAX_CAP){
+    public MaxBinaryHeap(int MAX_CAP){
         size = 0;
         heap = (Item[]) new Comparable[MAX_CAP + 1];
     }
@@ -39,9 +39,10 @@ public class BinaryHeap<Item extends Comparable<Item>>{
      */
     public Item delMax(){
         Item maxItem = heap[1];
-        heap[1] = heap[size--];
+        swap(heap, 1, size);
         moveDown(1);
-        heap[size+1] = null;
+        heap[size] = null;
+        size--;
         return maxItem;
     }
 
