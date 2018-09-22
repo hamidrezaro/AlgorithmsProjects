@@ -15,10 +15,10 @@
 public class MaxBinaryHeap<Item extends Comparable<Item>>{
 
     private Item[] heap;
-    private int size;
+    private int N;
 
     public MaxBinaryHeap(int MAX_CAP){
-        size = 0;
+        N = 0;
         heap = (Item[]) new Comparable[MAX_CAP + 1];
     }
 
@@ -28,8 +28,8 @@ public class MaxBinaryHeap<Item extends Comparable<Item>>{
      * @param x : item to be inserted
      */
     public void insert(Item x){
-        heap[++size] = x;
-        moveUp(size);
+        heap[++N] = x;
+        moveUp(N);
     }
 
 
@@ -38,11 +38,13 @@ public class MaxBinaryHeap<Item extends Comparable<Item>>{
      * @return largest element in the heap
      */
     public Item delMax(){
+        if (isEmpty())
+            throw new NullPointerException();
         Item maxItem = heap[1];
-        swap(heap, 1, size);
+        swap(heap, 1, N);
         moveDown(1);
-        heap[size] = null;
-        size--;
+        heap[N] = null;
+        N--;
         return maxItem;
     }
 
@@ -65,11 +67,11 @@ public class MaxBinaryHeap<Item extends Comparable<Item>>{
      */
     private void moveDown(int k){
 
-        while (2*k <= size){
+        while (2*k <= N){
             int j = 2*k;
             if(heap[j].compareTo(heap[j+1]) < 0)
                 j++;
-            if (j < size && heap[k].compareTo(heap[j]) < 0)
+            if (j < N && heap[k].compareTo(heap[j]) < 0)
                 swap(heap, k, j);
             if (heap[k].compareTo(heap[j]) >= 0)
                 break;
@@ -91,7 +93,15 @@ public class MaxBinaryHeap<Item extends Comparable<Item>>{
     }
 
     public boolean isEmpty(){
-        return size == 0;
+        return N == 0;
+    }
+
+    public int getSize(){
+        return N;
+    }
+
+    public Item[] getArray(){
+        return heap;
     }
 
 }
